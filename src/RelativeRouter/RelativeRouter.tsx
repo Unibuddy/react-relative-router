@@ -14,7 +14,7 @@ export const RelativeRouterContext = createContext<match>({
  * route and where we do not have access to the original url. For example if we have a route as follows:
  *
  * ```jsx
- * <Route path="/embed/:universitySlug/colour/:colourCode" render={() => {
+ * <Route match={{path: "/embed/:universitySlug/colour/:colourCode"}} render={() => {
  *   // here we render Widget
  * }}/>
  * ```
@@ -26,7 +26,7 @@ export const RelativeRouterContext = createContext<match>({
  *
  * ```jsx
  * <Route path="/embed/:universitySlug/colour/:colourCode" render={() => {
- *   <RelativeRouter path="/embed/:universitySlug/colour/:colourCode">
+ *   <RelativeRouter match={{path: "/embed/:universitySlug/colour/:colourCode"}}>
  *     // here we render Widget and somewhere down the component tree...
  *     <RelativeLink to="/test">Test</RelativeLink>
  *   </RelativeRouter>

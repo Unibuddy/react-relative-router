@@ -4,7 +4,7 @@ import { RelativeRouterContext } from '../RelativeRouter/RelativeRouter';
 
 /**
  * This hook allows the use of programmatic functions from react-router
- * but within the RelativeRouter scope. Meaning if you set `<RelativeRouter path="/test">`
+ * but within the RelativeRouter scope. Meaning if you set `<RelativeRouter match={{path: "/test"}}>`
  * somewhere up the tree, calling push function with `push("/hello")` from this hook will
  * append hello to test and call the react-router push with "/test/hello" url.
  *

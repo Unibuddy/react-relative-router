@@ -7,7 +7,7 @@ import RelativeRouter from '../RelativeRouter/RelativeRouter';
 test('renders a link with the to prop appended to the original path', () => {
   const { getByText } = render(
     <MemoryRouter>
-      <RelativeRouter path="/test">
+      <RelativeRouter match={{ url: '/test' }}>
         <RelativeNavLink to="/login">Test</RelativeNavLink>
       </RelativeRouter>
     </MemoryRouter>

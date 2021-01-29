@@ -16,7 +16,7 @@ const Test = () => {
 test('push should append url to the relative path', async () => {
   render(
     <BrowserRouter>
-      <RelativeRouter path="/" url="/test">
+      <RelativeRouter match={{ path: '/', url: '/test' }}>
         <Test />
       </RelativeRouter>
     </BrowserRouter>
