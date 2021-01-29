@@ -1,5 +1,11 @@
 # @unibuddy/react-relative-router
 
+## 0.6.0
+
+### Patch Changes
+
+- fixed the issue with RelativeRoute not passing `children` through
+
 ## 0.5.0
 
 ### Patch Changes
