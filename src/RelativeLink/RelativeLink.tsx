@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { RelativeRouterContext } from '../RelativeRouter/RelativeRouter';
-import getToProp from '../getToProp';
+import getToProp, { To } from '../getToProp';
 
 /**
  * RelativeLink appends the `to` prop to the pah from the RelativeRouterContext.
@@ -12,11 +12,13 @@ import getToProp from '../getToProp';
  * @param {*} {to, children, ...props}
  * @returns
  */
-export default function RelativeLink({ to, children, ...props }) {
+const RelativeLink: FC<{ to: To }> = ({ to, children, ...props }) => {
   const { url } = useContext(RelativeRouterContext);
   return (
     <Link to={getToProp(url, to)} {...props}>
       {children}
     </Link>
   );
-}
+};
+
+export default RelativeLink;

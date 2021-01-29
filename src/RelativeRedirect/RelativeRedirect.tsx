@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { RelativeRouterContext } from '../RelativeRouter/RelativeRouter';
-import getToProp from '../getToProp';
+import getToProp, { To } from '../getToProp';
 
 /**
  * RelativeRedirect appends the `to` prop to the pah from the RelativeRouterContext.
@@ -12,7 +12,9 @@ import getToProp from '../getToProp';
  * @param {*} {to, children, ...props}
  * @returns
  */
-export default function RelativeRedirect({ to, children, ...props }) {
+const RelativeRedirect: FC<{ to: To }> = ({ to, children, ...props }) => {
   const { url } = useContext(RelativeRouterContext);
   return <Redirect to={getToProp(url, to)} {...props} from={url} />;
-}
+};
+
+export default RelativeRedirect;

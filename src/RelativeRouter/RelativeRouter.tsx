@@ -1,6 +1,12 @@
-import React, {createContext, FC, useMemo} from "react";
+import React, { createContext, FC } from 'react';
+import { match } from 'react-router';
 
-export const RelativeRouterContext = createContext({path: "", url: ""});
+export const RelativeRouterContext = createContext<match>({
+  path: '',
+  url: '',
+  isExact: false,
+  params: {},
+});
 
 /**
  * Creates a relative routing context where all RelativeRouterLinks and RelativeRouterRoutes children within its context will
@@ -30,12 +36,12 @@ export const RelativeRouterContext = createContext({path: "", url: ""});
  * In the above example the resulting Link will have the to prop set as:
  * `/embed/:universitySlug/colour/:colourCode/test`
  */
-const RelativeRouter: FC<{path: string; url: string}> = ({children, path, url}) => {
-    const value = useMemo(() => ({path, url}), [path, url]);
-
-    return (
-        <RelativeRouterContext.Provider value={value}>{children}</RelativeRouterContext.Provider>
-    );
+const RelativeRouter: FC<{ match: match }> = ({ children, match }) => {
+  return (
+    <RelativeRouterContext.Provider value={match}>
+      {children}
+    </RelativeRouterContext.Provider>
+  );
 };
 
 export default RelativeRouter;
