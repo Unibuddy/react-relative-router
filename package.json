@@ -1,6 +1,7 @@
 {
   "version": "0.1.0",
   "license": "MIT",
+  "name": "@unibuddy/react-relative-router",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -35,7 +36,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-relative-router",
   "author": "Zarko Pernar",
   "module": "dist/react-relative-router.esm.js",
   "size-limit": [
