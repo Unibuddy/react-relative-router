@@ -8,8 +8,8 @@ export default function getToProp(baseUrl = '', to: To) {
   if (to !== null && typeof to === 'object') {
     return {
       ...to,
-      pathname: `${baseUrl}${to.pathname}`,
+      pathname: `${baseUrl}${to.pathname}`.replace('//', '/'),
     };
   }
-  return `${baseUrl}${to}`;
+  return `${baseUrl}${to}`.replace('//', '/');
 }
