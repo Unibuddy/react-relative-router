@@ -1,6 +1,8 @@
 import { useContext, useMemo } from 'react';
 import { useHistory } from 'react-router';
 import { RelativeRouterContext } from '../RelativeRouter/RelativeRouter';
+import getToProp from '../getToProp';
+import getPathProp from '../getPathProp';
 
 /**
  * This hook allows the use of programmatic functions from react-router
@@ -21,6 +23,8 @@ export default function useRelativeRouter() {
       },
       path,
       url: baseUrl,
+      getTo: (url: string) => getToProp(baseUrl, url),
+      getPath: (url: string) => getPathProp(path, url),
     }),
     [history, path, baseUrl]
   );

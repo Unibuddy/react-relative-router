@@ -24,7 +24,29 @@ const App = () => {
           </Route>
         </RelativeRouter>
       </Route>
+      <Route path="/with/:params">
+        <RelativeRouter>
+          <Route path="/test">
+            It will also preserve params in urls. You can use `useParams` within
+            this context to access params of the top level route.
+          </Route>
+        </RelativeRouter>
+      </Route>
     </BrowserRouter>
   );
 };
+```
+
+## Exports
+
+```
+import {
+    useRelativeRouter,
+    RelativeRoute,
+    RelativeSwitch,
+    RelativeLink,
+    RelativeNavLink,
+    RelativeRouter,
+    RelativeRedirect,
+} from "@unibuddy/react-relative-router";
 ```
