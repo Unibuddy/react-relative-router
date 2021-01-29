@@ -2,6 +2,7 @@ name: CI
 on: [push]
 jobs:
   publish-npm:
+    name: Build, and publish to npm
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -11,14 +12,12 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn publish
+      - run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
-
+    name: Lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
