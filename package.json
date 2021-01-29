@@ -4,6 +4,13 @@
   "name": "@unibuddy/react-relative-router",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "react-router",
+    "react-router-dom",
+    "javascript",
+    "router"
+  ],
   "files": [
     "dist",
     "src"
