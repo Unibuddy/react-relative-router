@@ -1,5 +1,5 @@
 name: CI
-on: [push]
+on: [release]
 jobs:
   publish-npm:
     name: Build, and publish to npm
