@@ -1,5 +1,5 @@
 import React, { createContext, FC } from 'react';
-import { match } from 'react-router';
+import { match, useRouteMatch } from 'react-router';
 
 export const RelativeRouterContext = createContext<match>({
   path: '',
@@ -36,9 +36,10 @@ export const RelativeRouterContext = createContext<match>({
  * In the above example the resulting Link will have the to prop set as:
  * `/embed/:universitySlug/colour/:colourCode/test`
  */
-const RelativeRouter: FC<{ match: match }> = ({ children, match }) => {
+const RelativeRouter: FC<{ match?: match }> = ({ children, match }) => {
+  const m = useRouteMatch();
   return (
-    <RelativeRouterContext.Provider value={match}>
+    <RelativeRouterContext.Provider value={match || m}>
       {children}
     </RelativeRouterContext.Provider>
   );

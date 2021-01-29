@@ -1,5 +1,11 @@
 # @unibuddy/react-relative-router
 
+## 0.5.0
+
+### Patch Changes
+
+- `match` prop on RelativeRouter is now optional. RelativeRouter uses `useRouteMatch` internally if match prop is mot provided
+
 ## 0.4.0
 
 ### Patch Changes
