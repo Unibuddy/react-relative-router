@@ -9,12 +9,12 @@ import getToProp, { To } from '../getToProp';
  * normal Link component.
  *
  * @export
- * @param {*} {to, children, ...props}
+ * @param {*} {to, ...props}
  * @returns
  */
-const RelativeRedirect: FC<{ to: To }> = ({ to, children, ...props }) => {
+const RelativeRedirect: FC<{ to: To }> = ({ to, ...props }) => {
   const { url } = useContext(RelativeRouterContext);
-  return <Redirect to={getToProp(url, to)} {...props} from={url} />;
+  return <Redirect {...props} from={url} to={getToProp(url, to)} />;
 };
 
 export default RelativeRedirect;

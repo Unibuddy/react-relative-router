@@ -12,24 +12,24 @@ A wrapper for react-router that enables relative routes within a bounded context
 
 ```jsx
 import { BrowserRouter, Route } from 'react-router-dom';
-import { RelativeRouter } from '@unibuddy/react-relative-router';
+import { RelativeRouter, RelativeRoute } from '@unibuddy/react-relative-router';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Route path="/some/long/route">
         <RelativeRouter>
-          <Route path="/test">
+          <RelativeRoute path="/test">
             This will only render when you navigate to `/some/long/route/test`
-          </Route>
+          </RelativeRoute>
         </RelativeRouter>
       </Route>
       <Route path="/with/:params">
         <RelativeRouter>
-          <Route path="/test">
+          <RelativeRoute path="/test">
             It will also preserve params in urls. You can use `useParams` within
             this context to access params of the top level route.
-          </Route>
+          </RelativeRoute>
         </RelativeRouter>
       </Route>
     </BrowserRouter>

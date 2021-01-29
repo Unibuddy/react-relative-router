@@ -8,14 +8,14 @@ import { RelativeRouterContext } from '../RelativeRouter/RelativeRouter';
  * normal Route component.
  *
  * @export
- * @param {*} {to, children, ...props}
+ * @param {*} {to, ...props}
  * @returns
  */
-const RelativeRoute: FC<{ path: string }> = ({ path, children, ...props }) => {
+const RelativeRoute: FC<{ path: string }> = ({ path, ...props }) => {
   const { path: basePath } = useContext(RelativeRouterContext);
   const finalPath = basePath + path;
 
-  return <Route path={finalPath} {...props} />;
+  return <Route {...props} path={finalPath} />;
 };
 
 export default RelativeRoute;

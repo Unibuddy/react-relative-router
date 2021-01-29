@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter, Link, Route, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, useParams } from 'react-router-dom';
 import {
   RelativeLink,
   RelativeNavLink,
@@ -10,32 +10,37 @@ import {
   RelativeSwitch,
 } from '../.';
 
-const Routes = () => {};
-
-const Test = () => {
-  const match = useRouteMatch();
+const TestParams = () => {
+  const params = useParams();
   return (
-    <RelativeRouter match={match}>
-      <div>
-        <RelativeNavLink to="/">Home</RelativeNavLink>{' '}
-        <RelativeNavLink to="/hello">Hello</RelativeNavLink>
-      </div>
-      <RelativeSwitch>
-        <RelativeRoute path="/hello">
-          Hello <RelativeLink to="/">Home</RelativeLink>
-        </RelativeRoute>
-        <RelativeRoute path="/">Index</RelativeRoute>
-      </RelativeSwitch>
-    </RelativeRouter>
+    <div>
+      It will also preserve params in urls. You can use `useParams` within this
+      context to access params of the top level route.
+      <pre>{JSON.stringify(params, null, 4)}</pre>
+    </div>
   );
 };
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Link to="/slug/test">Go To Test</Link>
-      <Route path="/slug/:slug">
-        <Test />
+      <Link to="/some/long/route/test">Some Long Route</Link>{' '}
+      <Link to="/with/params/test">With Params</Link>
+      <Route path="/some/long/route">
+        <RelativeRouter>
+          <RelativeRoute path="/test">
+            <p>
+              This will only render when you navigate to `/some/long/route/test`
+            </p>
+          </RelativeRoute>
+        </RelativeRouter>
+      </Route>
+      <Route path="/with/:params">
+        <RelativeRouter>
+          <RelativeRoute path="/test">
+            <TestParams />
+          </RelativeRoute>
+        </RelativeRouter>
       </Route>
     </BrowserRouter>
   );
