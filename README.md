@@ -8,6 +8,20 @@ A wrapper for react-router that enables relative routes within a bounded context
 
 `yarn add @unibuddy/react-relative-router`
 
+## Exports
+
+```js
+import {
+  useRelativeRouter,
+  RelativeRoute,
+  RelativeSwitch,
+  RelativeLink,
+  RelativeNavLink,
+  RelativeRouter,
+  RelativeRedirect,
+} from '@unibuddy/react-relative-router';
+```
+
 ## Example Use
 
 ### Basic example
@@ -114,18 +128,4 @@ const MyComponent = () => {
     </>
   );
 };
-```
-
-## Exports
-
-```
-import {
-    useRelativeRouter,
-    RelativeRoute,
-    RelativeSwitch,
-    RelativeLink,
-    RelativeNavLink,
-    RelativeRouter,
-    RelativeRedirect,
-} from "@unibuddy/react-relative-router";
 ```
