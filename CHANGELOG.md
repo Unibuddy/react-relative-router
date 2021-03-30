@@ -1,19 +1,25 @@
 # @unibuddy/react-relative-router
 
-## 0.6.0
+## 0.6.1
 
 ### Patch Changes
+
+- `RelativeLink` and `RelativeNavLink` forward props
+
+## 0.6.0
+
+### Minor Changes
 
 - fixed the issue with RelativeRoute not passing `children` through
 
 ## 0.5.0
 
-### Patch Changes
+### Minor Changes
 
 - `match` prop on RelativeRouter is now optional. RelativeRouter uses `useRouteMatch` internally if match prop is mot provided
 
 ## 0.4.0
 
-### Patch Changes
+### Minor Changes
 
 - fixed the issue with links and redirects to `/` path adding double slash

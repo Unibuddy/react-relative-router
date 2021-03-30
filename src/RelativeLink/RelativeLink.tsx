@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { forwardRef, ForwardRefRenderFunction, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { RelativeRouterContext } from '../RelativeRouter/RelativeRouter';
 import getToProp, { To } from '../getToProp';
@@ -12,13 +12,16 @@ import getToProp, { To } from '../getToProp';
  * @param {*} {to, children, ...props}
  * @returns
  */
-const RelativeLink: FC<{ to: To }> = ({ to, children, ...props }) => {
+const RelativeLink: ForwardRefRenderFunction<any, { to: To }> = (
+  { to, children, ...props },
+  ref
+) => {
   const { url } = useContext(RelativeRouterContext);
   return (
-    <Link to={getToProp(url, to)} {...props}>
+    <Link ref={ref} to={getToProp(url, to)} {...props}>
       {children}
     </Link>
   );
 };
 
-export default RelativeLink;
+export default forwardRef(RelativeLink);
