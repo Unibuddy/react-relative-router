@@ -1,5 +1,11 @@
 # @unibuddy/react-relative-router
 
+## 0.6.2
+
+### Patch Changes
+
+- `useRelativeRouter` push method now accepts state
+
 ## 0.6.1
 
 ### Patch Changes

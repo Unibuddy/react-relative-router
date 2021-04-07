@@ -18,8 +18,8 @@ export default function useRelativeRouter() {
   const history = useHistory();
   const value = useMemo(
     () => ({
-      push: (url: string) => {
-        return history.push(`${baseUrl}${url}`);
+      push: (url: string, state?: unknown) => {
+        return history.push(`${baseUrl}${url}`, state);
       },
       path,
       url: baseUrl,
