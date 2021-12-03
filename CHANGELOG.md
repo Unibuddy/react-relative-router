@@ -1,5 +1,11 @@
 # @unibuddy/react-relative-router
 
+## 0.7.0
+
+### Minor Changes
+
+- (fix) initializing relative router context where if the RelativeRouter was placed at the root of the app, it would break. It now transforms "/" initial routes with an empty string.
+
 ## 0.6.2
 
 ### Patch Changes

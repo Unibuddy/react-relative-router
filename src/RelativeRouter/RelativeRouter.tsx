@@ -1,4 +1,4 @@
-import React, { createContext, FC } from 'react';
+import React, { createContext, FC, useMemo } from 'react';
 import { match, useRouteMatch } from 'react-router';
 
 export const RelativeRouterContext = createContext<match>({
@@ -19,7 +19,7 @@ export const RelativeRouterContext = createContext<match>({
  * }}/>
  * ```
  *
- * Then anywehere within the Widget whenever we use a Link or a Route, we have to prepend the exisiting url first
+ * Then anywhere within the Widget whenever we use a Link or a Route, we have to prepend the exisiting url first
  * in order to get a url like this /embed/:universitySlug/colour/:colourCode/inbox/chat`. This can quickly
  * become tedious, as we have to pass in the original url throughout the app. RelativeRouter simplifies this
  * by doing this:
@@ -37,9 +37,17 @@ export const RelativeRouterContext = createContext<match>({
  * `/embed/:universitySlug/colour/:colourCode/test`
  */
 const RelativeRouter: FC<{ match?: match }> = ({ children, match }) => {
-  const m = useRouteMatch();
+  const rrMatch = useRouteMatch();
+  const innerMatch = useMemo(() => {
+    const { path, url, ...rest } = rrMatch;
+    return {
+      path: path === '/' ? '' : path,
+      url: url === '/' ? '' : url,
+      ...rest,
+    };
+  }, [rrMatch]);
   return (
-    <RelativeRouterContext.Provider value={match || m}>
+    <RelativeRouterContext.Provider value={match || innerMatch}>
       {children}
     </RelativeRouterContext.Provider>
   );
